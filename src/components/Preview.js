@@ -23,10 +23,10 @@ const Preview = ({classes,onlineUsers,allUsers}) => {
 
   return (
     <Grid container spacing={3}>
-    <Grid item xs={3}>
+    <Grid item xs={6}>
     <OnlineMembers classes={classes} onlineUsers={onlineUsers}/>
     </Grid>
-    <Grid item xs={3}>
+    <Grid item xs={6}>
     <ButtonGroup variant="contained" color="primary" ref={anchorRef} aria-label="split button">
           <Button >Present</Button>
           <Button
@@ -45,11 +45,7 @@ const Preview = ({classes,onlineUsers,allUsers}) => {
 
  
     </Grid>
-    <Grid item xs={3}>
-    <Button variant="contained" color="secondary">
-    Share
-    </Button>
-    </Grid>
+   
   
    
   </Grid>
