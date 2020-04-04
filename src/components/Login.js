@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = (props) =>{
     const classes = useStyles();
     const [values,changeValues] = React.useState({email:"",password:""});
-    const [loginStatus,changeLoginStatus] = React.useState(1)
+    const [loginStatus,changeLoginStatus] = React.useState(2)
     const [errorMessage,changeErrorMessage]=React.useState("")
 
     const handleChanges = (e,field) =>{
@@ -65,6 +65,7 @@ const Login = (props) =>{
           changeLoginStatus(1)
           axios.post(constants.apiUrl+'login',values)
           .then((res)=>{
+            changeLoginStatus(1)
             props.changeStatus('loggedIn',res)
           })
           .catch(err=>{
@@ -80,12 +81,16 @@ const Login = (props) =>{
    <AlertTitle>Error</AlertTitle>
     {errorMessage}
    </Alert>;
+       const success =<Alert severity="success">
+       <AlertTitle>Success</AlertTitle>
+       Logging in user.......
+       </Alert>;
 
     return(
         <div>
               <Card className={classes.root} variant="outlined">
                 <CardContent>
-                {(loginStatus == 0)?error:""}
+                {(loginStatus == 0)?error:((loginStatus == 1)?success:"")}
                     <Typography variant="h5" component="h2">
                       Login
                     </Typography>

@@ -14,7 +14,7 @@ const Document = ({classes,allUsers}) =>{
         <Card className={classes.documentCard} variant="outlined" >
         <CardContent>
         <Grid container spacing={3}>
-          <Grid item xs={9}>
+          <Grid item xs={6}>
             <div>
             <h1>
               Document title
@@ -24,7 +24,7 @@ const Document = ({classes,allUsers}) =>{
             </p>
             </div>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={6}>
             <div>
               <List>
                {
