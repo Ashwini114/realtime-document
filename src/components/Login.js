@@ -65,7 +65,6 @@ const Login = (props) =>{
           changeLoginStatus(1)
           axios.post(constants.apiUrl+'login',values)
           .then((res)=>{
-            changeLoginStatus(1)
             props.changeStatus('loggedIn',res)
           })
           .catch(err=>{

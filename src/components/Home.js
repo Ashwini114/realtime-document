@@ -56,13 +56,13 @@ const Home = ({userData,changeStatus}) =>{
    
     const [allUsers,updateUsers] = React.useState([])
     const [onlineUsers,updateOnlineUsers] = React.useState([])
-    const socket = openSocket(constants.apiUrl)
+    
 
 React.useEffect(()=>{
 getUsers()
-
- 
- socket.emit('send-socket-id', { id: userData._id });
+const socket = openSocket(constants.apiUrl)
+ if(userData["_id"])
+ socket.emit('send-socket-id', { id: userData["_id"] });
   socket.on('online', result => {
     getUsers()
   });
@@ -82,10 +82,7 @@ const getUsers = () =>{
   })
 }
 
-const logout = () =>{
-  socket.emit('logout')
-  changeStatus('login')
-}
+
 
 
 
@@ -97,9 +94,7 @@ const logout = () =>{
             <Typography variant="h6" className={classes.title}>
                 Realtime Document
             </Typography>
-            <Typography variant="h6" className={classes.title} onClick={()=>logout()}>
-               Logout
-            </Typography>
+          
             
             </Toolbar>
         </AppBar>
