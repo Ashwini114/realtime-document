@@ -1,6 +1,5 @@
 const constants = {
-    //apiUrl : "https://real-time-document.herokuapp.com/"
-    apiUrl : "http://localhost:8080/"
+    apiUrl : "https://real-time-document.herokuapp.com/"
 }
 
 export default constants
